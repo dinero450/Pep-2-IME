@@ -1,0 +1,42 @@
+La prueba de Yuen es una buena alternativa a la prueba t de Student para muestras independientes cuando
+las varianzas de ambas muestras son muy diferentes o los tamaños de las muestras son muy dispares.
+no se recomienda usar esta prueba si las muestras
+se truncan cerca del nivel de medianas (γ ≈ 0, 5).
+
+En R, podemos aplicar la prueba de Yuen para muestras independientes mediante la función yuen(formula,
+data, tr)
+
+
+Para pruebas unilaterales, sin embargo, se recomienda usar la variante con bootstrap, implementada en la
+función yuen(formula, data, tr, nboot), donde nboot señala la cantidad de muestras a obtener mediante
+bootstrapping.
+
+
+El paquete WRS2 incluye también la función pb2gen(formula, data, est, nboot), que usa bootstrapping
+para aplicar la prueba de Yuen usando otras medidas robustas de tendencia central, donde:
+est: medida a emplear. Puede tomar las opciones “mean” para la media y “median” (mediana), entre
+otras opciones que escapan a los alcances de este curso
+
+
+
+Prueba de Yuen para dos muestras pareadas
+la función yuend(x, y, tr) del paquete WRS2,
+que compara las medias truncadas
+
+
+Comparaciones de una vía para múltiples grupos independientes
+Altertnativas anova para muestras independientes cuando los tamaños muestrales son muy diferentes o no se cumple la condición de homocedasticidad.
+La función t1way(formula, data, tr, alpha) efectúa un procedimiento similar a ANOVA usando medias
+truncadas. la función lincon(formula, data, tr, alpha) permite realizar el procedimiento posthoc correspondiente.
+t1waybt(formula, data, tr, nboot) realiza un procedimiento análogo al anterior incorporando bootstrapping. En este caso, el procedimiento post-hoc puede realizarse mediante la función mcppb20(formula, data, tr, nboot).
+la función med1way(formula, data, iter), que emplea la mediana y sigue un proceso
+iterativo. No obstante, en este caso el paquete no ofrece funciones que permitan realizar el procedimiento
+post-hoc.
+
+
+Comparaciones de una vía para múltiples grupos correlacionados
+La función rmanova(y, groups, blocks, tr) efectúa un procedimiento similar a ANOVA usando medias
+truncadas, mientras que la función rmmcp(y, groups, blocks, tr, alpha) implementa el procedimiento
+post-hoc para dicha prueba. Por otra parte, rmanovab(y, groups, blocks, tr, nboot) realiza la misma
+tarea que rmanova(), incorporando bootstrapping. En este caso, el procedimiento post-hoc está dado por la
+función pairdepb(y, groups, blocks, tr, nboot).

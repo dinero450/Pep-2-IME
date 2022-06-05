@@ -1,0 +1,7 @@
+Existen situaciones en las que no podemos comprobar que la escala de medición de la variable dependiente
+sea de intervalos iguales:
+Cuando las observaciones se miden en una escala logarítmica (por ejemplo, la escala de pH para medir
+la acidez o la escala de Richter para medir la intensidad de los sismos).
+Cuando las mediciones provienen de una escala ordinal, por ejemplo, un orden de preferencia.
+Cuando las mediciones de base provienen de una escala ordinal. Por ejemplo, cuando se suman o
+promedian puntajes de diversos elementos evaluados con una escala Likert.

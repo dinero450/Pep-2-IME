@@ -1,0 +1,1 @@
+kruskal se realiza cuando los tamanos son diferents. Cuando no cumplen las conficiones se usa kruskal tambnien o no?

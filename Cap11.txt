@@ -1,0 +1,54 @@
+La prueba de suma de rangos de Wilcoxon
+Esta prueba es una alternativa no parametrica para la prueba t de Student para muestras independientes. Se requieren estas condiciones para usarla:
+1. Las observaciones de ambas muestras son independientes.
+2. La escala de medición empleada debe ser a lo menos ordinal, de modo que tenga sentido hablar de
+relaciones de orden (“igual que”, “menor que”, “mayor o igual que”).
+Pruebas de hipotesis:
+H0: no hay diferencia en la usabilidad de ambas interfaces (se distribuyen de igual forma).
+HA: sí hay diferencia en la usabilidad de ambas interfaces (distribuciones distintas).
+Prueba para muestras pequenas, es decir para menos de 5 observaciones y para muestras grandes mas de 5 obs.
+
+prueba <- wilcox.test (a , b , alternative = "two . sided ", conf . level = 1 - alfa )
+print ( prueba )
+
+
+La prueba de suma de rangos con signo de Wilcoxon
+Esta prueba es una alternativa no parametrica para la prueba t de Student para muestras correlacionadas. Se requieren estas condiciones para usarla:
+1. Los pares de observaciones son independientes.
+2. La escala de medición empleada para las observaciones es intrínsecamente continua.
+3. La escala de medición empleada para ambas muestras debe ser a lo menos ordinal.
+las hipótesis son:
+H0: las mismas personas no perciben diferencia en la usabilidad de ambas interfaces.
+HA: las mismas personas consideran que la interfaz A tiene mejor usabilidad que la interfaz B
+prueba <- wilcox.test (a , b , alternative = "two . sided ", PAIRED= true, conf . level = 1 - alfa )
+print ( prueba )
+
+
+
+
+KRUSKAL es la alternativa para anova de muestras indp. Condiciones:
+1. La variable independiente debe tener a lo menos dos niveles (aunque, para dos niveles, se suele usar la
+prueba de Wilcoxon-Mann-Whitney).
+2. La escala de la variable dependiente debe ser, a lo menos, ordinal.
+3. Las observaciones son independientes entre sí.
+
+Las hipótesis a contrastar son, entonces:
+H0: todos los algoritmos son igual de eficientes (o, de manera similar, ningún algoritmo es menos ni más
+eficiente que los demás).
+HA: al menos uno de los algoritmos presenta una eficiencia diferente a al menos algún otro algoritmo.
+
+
+Friedman es la alternativa para anova para muestras corerelaciones. Condiciones:
+1. La variable independiente debe ser categórica y tener a lo menos tres niveles.
+2. La escala de la variable dependiente debe ser, a lo menos, ordinal.
+3. Los sujetos son una muestra aleatoria e independiente de la población.
+Existen situaciones en las que no podemos comprobar que la escala de medición de la variable dependiente
+sea de intervalos iguales:
+Cuando las observaciones se miden en una escala logarítmica (por ejemplo, la escala de pH para medir
+la acidez o la escala de Richter para medir la intensidad de los sismos).
+Cuando las mediciones provienen de una escala ordinal, por ejemplo, un orden de preferencia.
+Cuando las mediciones de base provienen de una escala ordinal. Por ejemplo, cuando se suman o
+promedian puntajes de diversos elementos evaluados con una escala Likert.
+Hipotesis:
+H0: las interfaces tienen preferencias similares.
+HA: al menos una interfaz obtiene una preferencia distinta a las demás.
